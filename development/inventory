@@ -1,0 +1,11 @@
+
+# file: ~/.appflow/tenant/example/development/inventory
+
+# [local]
+local	ansible_connection=local conf_env=local ansible_become=no
+
+[webservers]
+atlantis
+
+[dbservers]
+atlantis

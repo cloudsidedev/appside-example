@@ -6,6 +6,8 @@ local	ansible_connection=local conf_env=local ansible_become=no
 
 [webservers]
 atlantis
+testing
 
 [dbservers]
 atlantis
+testing

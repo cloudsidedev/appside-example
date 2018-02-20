@@ -13,13 +13,16 @@ conf_cloud_enable: false
 # HOSTS
 #
 conf_hosts:
-    - 192.168.80.2 atlantis
+  - 192.168.80.2 atlantis
+  - 192.168.90.2 testing
 
 conf_hosts_glusterfs:
     - 192.168.80.2 gluster-node0.local
+    - 192.168.90.2 gluster-node01.local
 
 conf_hosts_mysql:
     - 192.168.80.2 mysql-node0.local
+    - 192.168.90.2 mysql-node01.local
 
 #
 # rc.local

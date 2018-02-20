@@ -111,7 +111,7 @@ conf_haproxy_www_redirect: |
     # redirect scheme https code 301 if !{ ssl_fc }
 
 conf_haproxy_www_acl:
-
+conf_haproxy_disable_ssl: true
 conf_haproxy_www_backend_balance: leastconn
 conf_haproxy_www_backend: |
     server localhost 127.0.0.1:6081 cookie control01 check port 6081 inter 12000 rise 3 fall 3

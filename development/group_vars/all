@@ -188,6 +188,17 @@ conf_users:
     is_deployer: yes
     is_mysql_admin: yes
 
+  deploy:
+    state: enabled
+    groups: "{{ conf_www_group }}"
+    name: "Capistrano Deploy User"
+    home: "/home/deploy"
+    shell: "{{ conf_zsh_path }}"
+    public_key: |
+       REPLACE_SSH_KEY
+    private_key: |
+    is_deployer: no
+    is_mysql_admin: yes
 #################
 # VIRTUAL HOSTS #
 #################

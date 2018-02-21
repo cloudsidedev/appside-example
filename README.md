@@ -4,3 +4,4 @@
 
 `sed -i "s|REPLACE_USER_NAME|$(whoami)|g" ~/.appflow/tenant/example/development/group_vars/all`
 
+`echo "test" > ~/.appflow/vault/example/development`

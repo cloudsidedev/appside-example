@@ -1,4 +1,4 @@
-#Before provisioning, perform these commands to setup your user and password.
+### Before provisioning, perform these commands to setup your user and password.
 
 `sed -i "s|REPLACE_SSH_KEY|$(cat ~/.ssh/id_rsa.pub)|g" ~/.appflow/tenant/example/development/group_vars/all`
 

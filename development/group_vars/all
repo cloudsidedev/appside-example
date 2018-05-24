@@ -204,11 +204,11 @@ conf_users:
 #################
 conf_vhosts_common:
 
-  example:
+  example-wp:
     state: enabled
-    servername: dev.example.com
+    servername: wp.dev.ttss.ch
     serveralias:
-      - www.dev.example.com
+      - www.wp.dev.ttss.ch
     serveradmin: webmaster@ttss.ch
     db_name: example_wp
     db_user: example_wp
@@ -216,7 +216,7 @@ conf_vhosts_common:
     db_server: 127.0.0.1
     db_host: '%'
     db_prefix: ahCh7Fei
-    glusterfs_uploads: example
+    glusterfs_uploads: example-wp
     type: wp_bedrock
     config_env: true
     env_opt: |
@@ -233,6 +233,33 @@ conf_vhosts_common:
       SECURE_AUTH_SALT='iqyy{?<h`fNX/iQ}on>cmB|/bbRD*nZD;8fGDH5`an_-Qj|:h|yO|two>a-yZ;*x'
       LOGGED_IN_SALT='l82hxF[w)R)L|bqw:a@;x=+geLouagDu:)}ss1k=T:!#.fc:9ZU{hJPEmV`7<BRi'
       NONCE_SALT='R{~-C+p|eJ=mEF,5F$m-|8@<HocSO!e&GNPw{_GTjW]c@to@8[O3RJA7:G-gMu!F'
+    htaccess:
+    htpasswd_password: false
+    ssl_pemfile:
+    ssl_haproxy: false
+    ssl_pem:
+    bkup: false
+    bkup_www_hosts:
+    bkup_mysql_hosts:
+    bkup_cron_schedule:
+
+
+  typo3:
+    state: enabled
+    servername: typo3.dev.ttss.ch
+    serveralias:
+      - www.typo3.dev.ttss.ch
+    serveradmin: webmaster@example.mail
+    db_name: typo3
+    db_user: typo3
+    db_password: ne2ni5Sh
+    db_server: 127.0.0.1
+    db_host: '%'
+    db_prefix:
+    type: laravel
+    config_env: true
+    env_opt:
+    wp_salt:
     htaccess:
     htpasswd_password: false
     ssl_pemfile:

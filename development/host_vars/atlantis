@@ -40,7 +40,7 @@ conf_rsyslog_remote: "*.* @@localhost:5000"
 #
 # Jailkit
 #
-conf_jailkit_enable: true
+conf_jailkit_enable: false
 
 #
 # nullmailer

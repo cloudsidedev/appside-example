@@ -176,14 +176,14 @@ rbenv:
 ###############
 conf_users:
 
-  REPLACE_USER_NAME:
+  eim:
     state: enabled
     groups: "{{ conf_sudo_nopasswd_group }},{{ conf_www_group }}"
     name: "Basic User"
-    home: "/home/REPLACE_USER_NAME"
+    home: "/home/eim"
     shell: "{{ conf_zsh_path }}"
     public_key: |
-      REPLACE_SSH_KEY
+      ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAzH5pt5CFM18f8WFSqW5QvyP9jFeI2fAtuu2p/OgL6SwkXir8om5RNzhPVhoLNiovT40MQAbc3gUs+VDyY7LGoE+h3n/KcMw0GKQIFXMiZX81h8NbQEMaMOFP9P3EZjoIgG0NsYQsQgh8EKE4sTd5FMYyngVfmUfAIEKZYr2fRVM= eim@chantel
     private_key:
     is_deployer: yes
     is_mysql_admin: yes
@@ -195,16 +195,17 @@ conf_users:
     home: "/home/deploy"
     shell: "{{ conf_zsh_path }}"
     public_key: |
-       REPLACE_SSH_KEY
+       ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAzH5pt5CFM18f8WFSqW5QvyP9jFeI2fAtuu2p/OgL6SwkXir8om5RNzhPVhoLNiovT40MQAbc3gUs+VDyY7LGoE+h3n/KcMw0GKQIFXMiZX81h8NbQEMaMOFP9P3EZjoIgG0NsYQsQgh8EKE4sTd5FMYyngVfmUfAIEKZYr2fRVM= eim@chantel
     private_key: |
     is_deployer: no
     is_mysql_admin: yes
+
 #################
 # VIRTUAL HOSTS #
 #################
 conf_vhosts_common:
 
-  example-wp:
+  wordpress-example:
     state: enabled
     servername: wp.dev.ttss.ch
     serveralias:
@@ -216,7 +217,7 @@ conf_vhosts_common:
     db_server: 127.0.0.1
     db_host: '%'
     db_prefix: ahCh7Fei
-    glusterfs_uploads: example-wp
+    glusterfs_uploads: wordpress-example
     type: wp_bedrock
     config_env: true
     env_opt: |
@@ -242,7 +243,6 @@ conf_vhosts_common:
     bkup_www_hosts:
     bkup_mysql_hosts:
     bkup_cron_schedule:
-
 
   typo3:
     state: enabled

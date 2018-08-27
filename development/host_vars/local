@@ -115,46 +115,46 @@ conf_docker_containers:
         labels:
             traefik.frontend.rule: "Host:docker.test"
             traefik.docker.network: "bridge"
-    # wpdb:
-    #     image: mariadb
-    #     name: wpdb
-    #     state: started
-    #     recreate: no
-    #     restart_policy: always
-    #     labels:
-    #         traefik.enable: "false"
-    #     volumes:
-    #         - "/etc/timezone:/etc/timezone:ro"
-    #         - "/etc/localtime:/etc/localtime:ro"
-    #         - "{{ conf_docker_persistent_storage_path }}/wpdb/var/lib/mysql:/var/lib/mysql:rw"
-    #     env:
-    #         MYSQL_ROOT_PASSWORD: root
-    #         MYSQL_DATABASE: wp
-    #         MYSQL_USER: wp
-    #         MYSQL_PASSWORD: wp
-    # wp:
-    #     name: wp
-    #     image: wordpress:php7.2
-    #     state: started
-    #     recreate: no
-    #     restart_policy: always
-    #     hostname: wp
-    #     volumes:
-    #         - "/etc/timezone:/etc/timezone:ro"
-    #         - "/etc/localtime:/etc/localtime:ro"
-    #         - "{{ conf_docker_persistent_storage_path }}/wp/var/www/html:/var/www/html:rw"
-    #     networks:
-    #         - name: "internal"
-    #     env:
-    #         WORDPRESS_DB_HOST: "wpdb:3306"
-    #         WORDPRESS_DB_USER: wp
-    #         WORDPRESS_DB_PASSWORD: wp
-    #         WORDPRESS_DB_NAME: wp
-    #     labels:
-    #         traefik.frontend.rule: "Host:wp.test"
-    #         traefik.docker.network: "bridge"
-    #     links:
-    #         - "wpdb"
+    wpdb:
+        image: mariadb
+        name: wpdb
+        state: started
+        recreate: no
+        restart_policy: always
+        labels:
+            traefik.enable: "false"
+        volumes:
+            # - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
+            - "{{ conf_docker_persistent_storage_path }}/wpdb/var/lib/mysql:/var/lib/mysql:rw"
+        env:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: wp
+            MYSQL_USER: wp
+            MYSQL_PASSWORD: wp
+    wp:
+        name: wp
+        image: wordpress:php7.2
+        state: started
+        recreate: no
+        restart_policy: always
+        hostname: wp
+        volumes:
+            # - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
+            - "{{ conf_docker_persistent_storage_path }}/wp/var/www/html:/var/www/html:rw"
+        networks:
+            - name: "internal"
+        env:
+            WORDPRESS_DB_HOST: "wpdb:3306"
+            WORDPRESS_DB_USER: wp
+            WORDPRESS_DB_PASSWORD: wp
+            WORDPRESS_DB_NAME: wp
+        labels:
+            traefik.frontend.rule: "Host:wp.test"
+            traefik.docker.network: "bridge"
+        links:
+            - "wpdb"
 
 #
 # MySQL
